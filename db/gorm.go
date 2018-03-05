@@ -3,7 +3,7 @@ package gorm
 import (
 	"fmt"
 
-	"anla.io/taizhou-y/config"
+	"anla.io/taizhou-ir/config"
 	// is mysql driver
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"

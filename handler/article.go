@@ -1,8 +1,11 @@
 package handler
 
 import (
-	"anla.io/taizhou-y/models"
-	"anla.io/taizhou-y/response"
+	"fmt"
+	"strconv"
+
+	"anla.io/taizhou-ir/models"
+	"anla.io/taizhou-ir/response"
 	"github.com/kataras/iris"
 )
 
@@ -41,10 +44,22 @@ func (ctl Article) Create(ctx iris.Context) {
 
 // All is
 func (ctl Article) All(ctx iris.Context) {
-	datas, err := models.Article{}.GetAll()
+	pageNoStr := ctx.Request().FormValue("page_no")
+	var pageNo int
+	var err error
+	if pageNo, err = strconv.Atoi(pageNoStr); err != nil {
+		pageNo = 1
+	}
+
+	page := models.PageModel{}
+
+	page.Num = pageNo
+
+	datas, err := models.Article{}.GetAll(&page)
 	if err != nil {
 		response.JSONError(ctx, err.Error())
 		return
 	}
-	response.JSON(ctx, datas)
+	fmt.Println(datas)
+	response.JSONPage(ctx, datas, page)
 }

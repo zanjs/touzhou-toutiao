@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"anla.io/taizhou-y/response"
+	"anla.io/taizhou-ir/response"
 	"github.com/houndgo/suuid"
 	"github.com/kataras/iris"
 )

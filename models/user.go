@@ -3,7 +3,7 @@ package models
 import (
 	"time"
 
-	"anla.io/taizhou-y/db"
+	"anla.io/taizhou-ir/db"
 	"github.com/houndgo/suuid"
 	gm "github.com/jinzhu/gorm"
 )
@@ -17,7 +17,7 @@ type (
 	User struct {
 		BaseModel
 		UserName
-		Email    string `json:"email" gorm:"type:varchar(100);unique"`
+		// Email    string `json:"-" gorm:"type:varchar(100);unique"`
 		Password string `json:"-"`
 	}
 
@@ -40,7 +40,7 @@ func (UserShort) TableName() string {
 
 //BeforeSave is
 func (s *User) BeforeSave(scope *gm.Scope) (err error) {
-	s.UID = suuid.New().String()
+	s.ID = suuid.New().String()
 	return err
 }
 

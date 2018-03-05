@@ -5,9 +5,13 @@ import (
 )
 
 type (
+	// IDAutoModel is
+	IDAutoModel struct {
+		ID uint `json:"id" sql:"AUTO_INCREMENT" gorm:"unique_index;not null;unique;primary_key;column:id"`
+	}
 	// IDModel is
 	IDModel struct {
-		ID uint `json:"id" sql:"AUTO_INCREMENT" gorm:"unique_index;not null;unique;primary_key;column:id"`
+		ID string `json:"id" sql:"index"  gorm:"unique_index;not null;unique;primary_key;column:id"`
 	}
 	// UUIDModel is
 	UUIDModel struct {
@@ -28,31 +32,30 @@ type (
 	DeletedAtModel struct {
 		DeletedAt *time.Time `json:"deleted_at" gorm:"column:deleted_at"`
 	}
+	// TimeAllModel is
+	TimeAllModel struct {
+		CreateModel
+		UpdatedAtModel
+		DeletedAtModel
+	}
 )
 
 // BaseModel is
 type BaseModel struct {
 	IDModel
-	UUIDModel
-	CreateModel
-	UpdatedAtModel
-	DeletedAtModel
+	TimeAllModel
 }
 
 // IDBaseModel is
 type IDBaseModel struct {
 	IDModel
-	CreateModel
-	UpdatedAtModel
-	DeletedAtModel
+	TimeAllModel
 }
 
 // UUIDBaseModel is
 type UUIDBaseModel struct {
 	UUIDModel
-	CreateModel
-	UpdatedAtModel
-	DeletedAtModel
+	TimeAllModel
 }
 
 // IDCreateModel is
@@ -66,6 +69,7 @@ type PageModel struct {
 	Offset int `json:"offset"`
 	Limit  int `json:"limit"`
 	Count  int `json:"count"`
+	Num    int `json:"num"`
 }
 
 // QueryParams is

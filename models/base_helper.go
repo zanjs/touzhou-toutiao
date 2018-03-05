@@ -1,7 +1,7 @@
 package models
 
 import (
-	"anla.io/taizhou-y/db"
+	"anla.io/taizhou-ir/db"
 )
 
 func helpCreate(m *struct{}) error {

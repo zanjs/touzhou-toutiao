@@ -3,9 +3,9 @@ package handler
 import (
 	"time"
 
-	"anla.io/taizhou-y/config"
-	"anla.io/taizhou-y/models"
-	"anla.io/taizhou-y/response"
+	"anla.io/taizhou-ir/config"
+	"anla.io/taizhou-ir/models"
+	"anla.io/taizhou-ir/response"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/kataras/iris"
 	"golang.org/x/crypto/bcrypt"
@@ -34,7 +34,7 @@ func PostLogin(ctx iris.Context) {
 
 	user, _ := models.User{}.GetByUsername(u.Username)
 
-	if user.ID == 0 {
+	if user.ID == "" {
 		response.JSONError(ctx, "用户名不存在")
 		return
 	}
@@ -55,7 +55,6 @@ func PostLogin(ctx iris.Context) {
 	claims := token.Claims.(jwt.MapClaims)
 	claims["id"] = user.ID
 	claims["username"] = user.Username
-	claims["email"] = user.Email
 	claims["exp"] = time.Now().Add(time.Hour * 72).Unix()
 
 	// Generate encoded token and send it as response.

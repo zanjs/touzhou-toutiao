@@ -3,7 +3,9 @@ package models
 import (
 	"time"
 
-	"anla.io/taizhou-y/db"
+	"anla.io/taizhou-ir/db"
+	"github.com/houndgo/suuid"
+	gm "github.com/jinzhu/gorm"
 )
 
 type (
@@ -15,6 +17,12 @@ type (
 		Disabled bool   `json:"disabled" gorm:"default:'0'"`
 	}
 )
+
+//BeforeSave is
+func (a *Category) BeforeSave(scope *gm.Scope) (err error) {
+	a.ID = suuid.New().String()
+	return err
+}
 
 // Create is
 func (a Category) Create(m *Category) error {

@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"anla.io/taizhou-y/response"
+	"anla.io/taizhou-ir/response"
 	"github.com/kataras/iris"
 )
 

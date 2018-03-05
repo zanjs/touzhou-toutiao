@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"anla.io/taizhou-y/models"
+	"anla.io/taizhou-ir/models"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/kataras/iris"
 )
@@ -14,7 +14,8 @@ func (ctl Controller) GetUser(ctx iris.Context) models.User {
 	user := models.User{}
 	userJwt := ctx.Values().Get("jwt").(*jwt.Token)
 	claims := userJwt.Claims.(jwt.MapClaims)
-	userID := uint(claims["id"].(float64))
+	// userID := uint(claims["id"].(float64))
+	userID := claims["id"].(string)
 	user.ID = userID
 	user.Username = claims["username"].(string)
 	return user

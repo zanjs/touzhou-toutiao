@@ -1,9 +1,9 @@
 package app
 
 import (
-	"anla.io/taizhou-y/config"
-	"anla.io/taizhou-y/handler"
-	"anla.io/taizhou-y/middleware"
+	"anla.io/taizhou-ir/config"
+	"anla.io/taizhou-ir/handler"
+	"anla.io/taizhou-ir/middleware"
 
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"

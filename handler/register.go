@@ -1,10 +1,9 @@
 package handler
 
 import (
-	"anla.io/taizhou-y/models"
-	"anla.io/taizhou-y/response"
-	"anla.io/taizhou-y/utils"
-	"github.com/houndgo/suuid"
+	"anla.io/taizhou-ir/models"
+	"anla.io/taizhou-ir/response"
+	"anla.io/taizhou-ir/utils"
 	"github.com/kataras/iris"
 )
 
@@ -33,14 +32,13 @@ func (re Register) Add(ctx iris.Context) {
 
 	user, _ := models.User{}.GetByUsername(u.Username)
 
-	if user.ID != 0 {
+	if user.ID != "" {
 		response.JSONError(ctx, "用户名存在")
 		return
 	}
 
 	user.Username = u.Username
 	user.Password = utils.HashPassword(u.Password)
-	user.UID = suuid.New().String()
 
 	err := models.User{}.Create(&user)
 

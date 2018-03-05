@@ -6,8 +6,8 @@ import (
 	"path"
 	"strings"
 
-	"anla.io/taizhou-y/config"
-	"anla.io/taizhou-y/response"
+	"anla.io/taizhou-ir/config"
+	"anla.io/taizhou-ir/response"
 	"github.com/houndgo/houndgo/ifile"
 	"github.com/houndgo/houndgo/itime"
 	"github.com/houndgo/suuid"

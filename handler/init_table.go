@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"anla.io/taizhou-y/models"
-	"anla.io/taizhou-y/response"
+	"anla.io/taizhou-ir/models"
+	"anla.io/taizhou-ir/response"
 	"github.com/kataras/iris"
 )
 

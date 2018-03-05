@@ -1,7 +1,7 @@
 package models
 
 import (
-	"anla.io/taizhou-y/db"
+	"anla.io/taizhou-ir/db"
 )
 
 //CreateTable is init db table

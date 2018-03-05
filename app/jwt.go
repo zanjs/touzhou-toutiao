@@ -1,7 +1,7 @@
 package app
 
 import (
-	"anla.io/taizhou-y/handler"
+	"anla.io/taizhou-ir/handler"
 	jwt "github.com/dgrijalva/jwt-go"
 	jwtmiddleware "github.com/iris-contrib/middleware/jwt"
 )
