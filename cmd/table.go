@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"anla.io/hound/models"
+	"anla.io/taizhou-y/models"
 )
 
 func init() {

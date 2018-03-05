@@ -3,7 +3,7 @@ package models
 import (
 	"time"
 
-	"anla.io/hound/db"
+	"anla.io/taizhou-y/db"
 )
 
 type (

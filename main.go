@@ -1,7 +1,7 @@
 package main
 
 import (
-	"anla.io/hound/app"
+	"anla.io/taizhou-y/app"
 )
 
 func main() {

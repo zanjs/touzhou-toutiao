@@ -3,9 +3,9 @@ package handler
 import (
 	"time"
 
-	"anla.io/hound/config"
-	"anla.io/hound/models"
-	"anla.io/hound/response"
+	"anla.io/taizhou-y/config"
+	"anla.io/taizhou-y/models"
+	"anla.io/taizhou-y/response"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/kataras/iris"
 	"golang.org/x/crypto/bcrypt"

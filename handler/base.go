@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"anla.io/hound/models"
+	"anla.io/taizhou-y/models"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/kataras/iris"
 )
